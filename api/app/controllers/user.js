@@ -5,7 +5,7 @@ exports.create = async (req,res) => {
     try{
         const userData = req.body;
 
-        const user = await userService.registerUser(userData);
+        const user = await userService.createUser(userData);
 
         res.json(user);
 

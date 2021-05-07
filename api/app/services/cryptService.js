@@ -6,6 +6,6 @@ exports.hashPassword = (password) => {
     return bcrypt.hash(password, config.crypt.saltRounds)
 }
 
-exports.comparePassword = (password, hash) => {
-    return bcrypt.compare(password, hash)
+exports.comparePassword = (password, hashedPassword) => {
+    return bcrypt.compare(password, hashedPassword)
 }

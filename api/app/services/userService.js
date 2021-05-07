@@ -1,17 +1,17 @@
 const userRepository = require('../repositories/user');
 const cryptService = require('./cryptService');
 
-exports.registerUser = async (userData) => {
+exports.createUser = async (userData) => {
 
-    const hashPassword = await cryptService.hashPassword(userData.password)
+    const hashedPassword = await cryptService.hashPassword(userData.password)
 
-    const userDataHashPassword = {
+    const userDataHashedPassword = {
         name: userData.name,
         email: userData.email,
-        password: hashPassword,
+        hashedPassword: hashedPassword,
     }
 
-    const user = await userRepository.create(userDataHashPassword);
+    const user = await userRepository.create(userDataHashedPassword);
 
     return {
         id: user.id,
